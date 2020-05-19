@@ -20,5 +20,5 @@ AppMain.BindUIEvents = function(){
 // ******************************
 AppMain.BtnGetCustomerIdQRCode_OnClicked = function(){
     AppMain.TextCustomerIdQRCode.empty();
-    AppMain.TextCustomerIdQRCode.qrcode(AppMain.TextCustomerEmailAddress.val());
+    AppMain.TextCustomerIdQRCode.qrcode(btoa(AppMain.TextCustomerEmailAddress.val()));
 }
