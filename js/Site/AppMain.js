@@ -6,6 +6,7 @@ AppMain.IsUIEventsBound = false;
 AppMain.Initialize = function(){
     if(!AppMain.IsUIEventsBound){
         AppMain.BindUIEvents();
+        AppMain.IsUIEventsBound = true;
     }
 }
 
