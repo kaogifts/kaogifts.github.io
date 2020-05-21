@@ -11,30 +11,35 @@ AppMain.Initialize = function(){
 }
 
 AppMain.TextCustomerEmailAddress = $("#CustomerEmailAddress");
-AppMain.BlockCustomerIdQRCode = $("#CustomerIdQRCode");
-AppMain.BtnGetCustomerIdQRCode = $("#GetCustomerIdQRCode");
-AppMain.ScrollTriggerGetCustomerIdQRCode = $("#GetCustomerIdQRCodeScrollTrigger");
+AppMain.LabelErrorEmailAddress = $("#LabelErrorEmailAddress");
+AppMain.BlockCustomerIdQRCode = $("#BlockCustomerIdQRCode");
+AppMain.BtnGetCustomerIdQRCode = $("#BtnGetCustomerIdQRCode");
+AppMain.ScrollTriggerGetCustomerIdQRCode = $("#ScrollTriggerGetCustomerIdQRCode");
 AppMain.BindUIEvents = function(){
     AppMain.BtnGetCustomerIdQRCode.bind("click", AppMain.BtnGetCustomerIdQRCode_OnClicked);
-    AppMain.TextCustomerEmailAddress.bind("keyup", AppMain.TextCustomerEmailAddress_OnKeyPress);
+    AppMain.TextCustomerEmailAddress.bind("keyup", AppMain.TextCustomerEmailAddress_OnKeyUp);
 }
 
 
 // ******************************
 AppMain.BtnGetCustomerIdQRCode_OnClicked = function(){
-    AppMain.BlockCustomerIdQRCode.empty();
-    AppMain.BlockCustomerIdQRCode.qrcode(btoa(AppMain.TextCustomerEmailAddress.val()));
-    AppMain.ScrollTriggerGetCustomerIdQRCode.click();
-}
-
-AppMain.TextCustomerEmailAddress_OnKeyPress = function(){
     if(AppMain.ValidateEmail(AppMain.TextCustomerEmailAddress.val())){
-        AppMain.BtnGetCustomerIdQRCode.attr("disabled", false);
+        AppMain.LabelErrorEmailAddress.css("display", "none");
+        AppMain.BlockCustomerIdQRCode.empty();
+        AppMain.BlockCustomerIdQRCode.qrcode(btoa(AppMain.TextCustomerEmailAddress.val()));
+        AppMain.ScrollTriggerGetCustomerIdQRCode.click();
     }
     else{
-        AppMain.BtnGetCustomerIdQRCode.attr("disabled", true);
+        AppMain.LabelErrorEmailAddress.css("display", "block");
     }
 }
+
+AppMain.TextCustomerEmailAddress_OnKeyUp = function(){
+    if(AppMain.ValidateEmail(AppMain.TextCustomerEmailAddress.val())){
+        AppMain.LabelErrorEmailAddress.css("display", "none");
+    }
+}
+
 
 // ******************************
 AppMain.ValidateEmail = function(email) {
