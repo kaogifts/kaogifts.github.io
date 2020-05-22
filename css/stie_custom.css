@@ -3,5 +3,5 @@
 }
 
 .custom-font{
-    font-family: Bahnschrift,微軟正黑體;
+    font-family: Bahnschrift,微軟正黑體 !important; 
 }
