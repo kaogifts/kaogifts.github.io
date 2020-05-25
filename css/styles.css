@@ -10096,7 +10096,7 @@ header.masthead {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: bottom center;
-  background-size: contain;
+  background-size: cover;
   background-color: white;
 }
 header.masthead .masthead-subheading {
@@ -10117,6 +10117,7 @@ header.masthead .masthead-heading {
   header.masthead {
     background-position: center center;
     background-size: cover;
+    background-image: url("../assets/img/header-bg_small.jpg");
   }
 }
 
