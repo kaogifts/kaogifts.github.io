@@ -26,7 +26,7 @@ AppMain.BtnGetCustomerIdQRCode_OnClicked = function(){
     if(AppMain.ValidateEmail(AppMain.TextCustomerEmailAddress.val())){
         AppMain.LabelErrorEmailAddress.css("display", "none");
         AppMain.BlockCustomerIdQRCode.empty();
-        AppMain.BlockCustomerIdQRCode.qrcode(btoa(AppMain.TextCustomerEmailAddress.val()));
+        AppMain.BlockCustomerIdQRCode.qrcode((AppMain.TextCustomerEmailAddress.val()));
         AppMain.ScrollTriggerGetCustomerIdQRCode.click();
     }
     else{
